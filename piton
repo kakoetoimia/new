@@ -1,0 +1,7 @@
+import random
+pasw="+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+wei=input("какой длинны пароль вы хотите сгенерировать?")
+parol=""
+for i in range (wei):
+    parol +=random.choide(pasw)
+print(parol)
