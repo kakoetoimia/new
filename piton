@@ -1,7 +1,32 @@
-import random
-pasw="+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-wei=input("какой длинны пароль вы хотите сгенерировать?")
-parol=""
-for i in range (wei):
-    parol +=random.choide(pasw)
-print(parol)
+# Переменная intents - хранит привилегии бота
+import discord
+intents = discord.Intents.default()
+# Включаем привелегию на чтение сообщений
+intents.message_content = True
+# Создаем бота в переменной client и передаем все привелегии
+client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'We have logged in as {client.user}')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.content.startswith('$hello'):
+        await message.channel.send("Hi!")
+    elif message.content.startswith('$bye'):
+        await message.channel.send("\\U0001f642")
+    else:
+        await message.channel.send(message.pass_length)
+
+client.run("MTE4MDc4MDExNzEwMjk3MzA0OQ.G1-zM-.0WAVNuktcSw2QARyvliuHv5YpuWSIIfnE_h6jk")
+def gen_pass(pass_length):
+    import random
+    pasw="+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    wei=int(input("какой длины пароль вы хотите сгенерировать?")) # = int(input("какой длины пароль....") нужно перевести в числовой тип данных
+    parol=""
+    for i in range(wei):                   #пробел перед скобкой можно убрать
+        parol +=random.choice(pasw)
+    return parol
