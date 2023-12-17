@@ -1,0 +1,22 @@
+import discord
+from discord.ext import commands
+import os, random
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+@bot.command()
+async def fact(ctx):
+    ctx.send("а вы знали что:")
+    facts = ["бумага и картон разлагаются за 1-2 месяца","стекло разлагается за 1000лет","пластик разлагается от 400 до 700 лет","Время разложения 1 батарейки на земле – 100 лет."]
+    ctx.send(random.choice(facts))
+
+@bot.command()
+async def rule(ctx):
+    ctx.send("вот идея как помочь окружающей среде")
+    rule = ["не мусорить никогда и нигде","учавствовать в акциях сбора, например батареек","стать волонтером","делать пожертвования в соответсвующие фонды","сортировать мусор"]
+    ctx.send(random.choice(rule))
+@bot.commmand()
+async def pic(ctx): 
+    print(os.listdir('eimages'))
+#нужно дописать последнюю команду и токен
