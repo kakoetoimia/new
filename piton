@@ -4,13 +4,13 @@ intents = discord.Intents.default()
 # Включаем привелегию на чтение сообщений
 intents.message_content = True
 # Создаем бота в переменной client и передаем все привелегии
-client = discord.Client(intents=intents)
+bot = discord.Bot(intents=intents)
 
-@client.event
+@Bot.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
-@client.event
+@Bot.event
 async def on_message(message):
     if message.author == client.user:
         return
@@ -20,8 +20,9 @@ async def on_message(message):
         await message.channel.send("\\U0001f642")
     else:
         await message.channel.send(message.pass_length)
+@Bot.
 
-client.run("MTE4MDc4MDExNzEwMjk3MzA0OQ.G1-zM-.0WAVNuktcSw2QARyvliuHv5YpuWSIIfnE_h6jk")
+Bot.run("MTE4MDc4MDExNzEwMjk3MzA0OQ.G1-zM-.0WAVNuktcSw2QARyvliuHv5YpuWSIIfnE_h6jk")
 def gen_pass(pass_length):
     import random
     pasw="+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
