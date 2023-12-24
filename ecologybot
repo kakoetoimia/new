@@ -23,4 +23,8 @@ async def meme(ctx):
     with open(f'images/{img_name}', 'rb') as f:
             picture = discord.File(f)
     await ctx.send(file = picture)
+@bot.event()
+async def help(ctx):
+     ctx.send("Доступные комманды:")
+     ctx.send("$fact - интересные факты про экологию"/n"$rule - идея как помочь окружающей среде"/n"$meme - смешные картинки(мемы) про экологию")
 bot.run("MTE4ODM5MzU5NDU4Nzk3MTY3NA.GcHvGt.q9d1fRrApZcCaS7W4yciwhmR7493z6bJyH9V_I")
